@@ -1,0 +1,178 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Server\\ftodo.Server.fsproj": {}
+  },
+  "projects": {
+    "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj",
+        "projectName": "ftodo.Client",
+        "projectPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj",
+        "packagesPath": "C:\\Users\\anbossar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anbossar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Bolero": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "Bolero.Build": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "Bolero.HotReload": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "target": "Package",
+              "version": "[5.0.*, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.3, 5.0.3]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Server\\ftodo.Server.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Server\\ftodo.Server.fsproj",
+        "projectName": "ftodo.Server",
+        "projectPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Server\\ftodo.Server.fsproj",
+        "packagesPath": "C:\\Users\\anbossar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anbossar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj": {
+                "projectPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Bolero.HotReload.Server": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "Bolero.Server": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[5.0.*, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[5.0.*, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
