@@ -5,7 +5,7 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\anbossar\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\user\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.8.0</NuGetToolVersion>
   </PropertyGroup>
@@ -19,10 +19,10 @@
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\5.0.0\build\net5.0\Microsoft.AspNetCore.Components.WebAssembly.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\5.0.0\build\net5.0\Microsoft.AspNetCore.Components.WebAssembly.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer Condition=" '$(PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer)' == '' ">C:\Users\anbossar\.nuget\packages\microsoft.aspnetcore.components.webassembly.devserver\5.0.3</PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer>
-    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\anbossar\.nuget\packages\fsharp.core\5.0.0</PkgFSharp_Core>
-    <PkgBolero Condition=" '$(PkgBolero)' == '' ">C:\Users\anbossar\.nuget\packages\bolero\0.16.27</PkgBolero>
-    <PkgBolero_HotReload Condition=" '$(PkgBolero_HotReload)' == '' ">C:\Users\anbossar\.nuget\packages\bolero.hotreload\0.16.13</PkgBolero_HotReload>
-    <PkgBolero_Build Condition=" '$(PkgBolero_Build)' == '' ">C:\Users\anbossar\.nuget\packages\bolero.build\0.16.27</PkgBolero_Build>
+    <PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer Condition=" '$(PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer)' == '' ">C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.webassembly.devserver\5.0.3</PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\user\.nuget\packages\fsharp.core\5.0.0</PkgFSharp_Core>
+    <PkgBolero Condition=" '$(PkgBolero)' == '' ">C:\Users\user\.nuget\packages\bolero\0.16.27</PkgBolero>
+    <PkgBolero_HotReload Condition=" '$(PkgBolero_HotReload)' == '' ">C:\Users\user\.nuget\packages\bolero.hotreload\0.16.13</PkgBolero_HotReload>
+    <PkgBolero_Build Condition=" '$(PkgBolero_Build)' == '' ">C:\Users\user\.nuget\packages\bolero.build\0.16.27</PkgBolero_Build>
   </PropertyGroup>
 </Project>

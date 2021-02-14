@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj": {}
+    "C:\\Users\\user\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj": {
+    "C:\\Users\\user\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj",
         "projectName": "ftodo.Client",
-        "projectPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj",
-        "packagesPath": "C:\\Users\\anbossar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anbossar\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\ftodo.Client.fsproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\projects\\ftodo\\src\\ftodo.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anbossar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
