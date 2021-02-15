@@ -10,27 +10,17 @@ open Bolero.Templating.Client
 
 /// Routing endpoints definition.
 type Page =
-    | [<EndPoint "/customers">] Customers
+    | [<EndPoint "/">] Home
     | [<EndPoint "/tasks">] Tasks
-    | [<EndPoint "/home">] Home
     | [<EndPoint "/counter">] Counter
     | [<EndPoint "/data">] Data
 
-/// The Elmish application's model.
-type Model =
-    {
-        page: Page
-        counter: int
-        books: Book[] option
-        error: string option
-        username: string
-        password: string
-        signedInAs: option<string>
-        signInFailed: bool
-        newTaskName: string
-    }
 
-and Book =
+type Task = {
+    name: string
+}
+
+type Book =
     {
         title: string
         author: string
@@ -38,17 +28,34 @@ and Book =
         isbn: string
     }
 
+/// The Elmish application's model.
+type Model =
+    {
+        page: Page
+        counter: int
+        books: Book[] option
+        tasks: Task list
+        newTaskName: string
+        error: string option
+        username: string
+        password: string
+        signedInAs: option<string>
+        signInFailed: bool
+    }
+
+
 let initModel =
     {
-        page = Customers
+        page = Home
         counter = 0
         books = None
+        tasks = []
+        newTaskName = ""
         error = None
         username = ""
         password = ""
         signedInAs = None
         signInFailed = false
-        newTaskName = ""
     }
 
 /// Remote service definition.
@@ -79,13 +86,14 @@ type BookService =
 /// The Elmish application's update messages.
 type Message =
     | SetPage of Page
+    | AddTask of Task
+    | SetNewTaskName of string
     | Increment
     | Decrement
     | SetCounter of int
     | GetBooks
     | GotBooks of Book[]
     | SetUsername of string
-    | VerifyTaskName of string
     | SetPassword of string
     | GetSignedInAs
     | RecvSignedInAs of option<string>
@@ -103,14 +111,16 @@ let update remote message model =
     match message with
     | SetPage page ->
         { model with page = page }, Cmd.none
-
+    | SetNewTaskName newTaskName ->
+        {model with newTaskName = newTaskName}, Cmd.none
+    | AddTask task ->
+        {model with tasks = task :: model.tasks }, Cmd.none
     | Increment ->
         { model with counter = model.counter + 1 }, Cmd.none
     | Decrement ->
         { model with counter = model.counter - 1 }, Cmd.none
     | SetCounter value ->
         { model with counter = value }, Cmd.none
-
     | GetBooks ->
         let cmd = Cmd.OfAsync.either remote.getBooks () GotBooks Error
         { model with books = None }, cmd
@@ -119,8 +129,6 @@ let update remote message model =
 
     | SetUsername s ->
         { model with username = s }, Cmd.none
-    | VerifyTaskName s ->
-        { model with newTaskName = "no" }, Cmd.none
     | SetPassword s ->
         { model with password = s }, Cmd.none
     | GetSignedInAs ->
@@ -150,47 +158,15 @@ type Main = Template<"wwwroot/main.html">
 
 let homePage model dispatch =
     Main.Home().Elt()
+
+let getName item =
+    item.name
     
+
 let tasksPage model dispatch =
-     div [] [
-         ul [] [
-             li [] [
-                 input [
-                     attr.``type`` "radio"
-                     attr.name "active-task"
-                     attr.id "none"
-                     attr.value "none"
-                     attr.``checked`` true
-                 ]
-                 text "-------- not working ----------"
-             ]
-             li [] [
-                 input [
-                     attr.``type`` "radio"
-                     attr.id "task-1"
-                     attr.value "task-1"
-                     attr.name "active-task"
-                 ]
-                 text "Task 2"
-                 button [] [
-                     label [] [text "Edit"]
-                 ]
-                 button [] [
-                     label [] [text "Delete"]
-                 ]
-             ]
-             li [] [
-                 input [
-                        attr.``type`` "text"
-                        attr.placeholder "New task ..."
-                        bind.input.string model.newTaskName (fun n -> dispatch (SetUsername n))
-                        ]
-                 button [ on.click (fun _ -> printfn "Clicked!")] [
-                     label [] [textf "Add Task %s" model.username]
-                 ]
-             ]
-         ]
-     ]
+    let addTaskInput = input [bind.input.string model.newTaskName (dispatch << SetNewTaskName)]
+    let addButtonEl = button [on.click (fun _ -> dispatch (AddTask {name = model.newTaskName}))] [text "Me gusto"]
+    Main.Tasks().TaskTable(h2 [] [addTaskInput; addButtonEl; textf "TaskTable 2 %A" model.tasks]).Elt()
 
 let counterPage model dispatch =
     Main.Counter()
@@ -243,16 +219,15 @@ let menuItem (model: Model) (page: Page) (text: string) =
 let view model dispatch =
     Main()
         .Menu(concat [
+            menuItem model Home "Home"
             menuItem model Tasks "Tasks"
-            menuItem model Home "Home 2"
             menuItem model Counter "Counter"
             menuItem model Data "Download data"
         ])
         .Body(
             cond model.page <| function
-            | Customers -> tasksPage model dispatch
-            | Tasks -> tasksPage model dispatch
             | Home -> homePage model dispatch
+            | Tasks -> tasksPage model dispatch
             | Counter -> counterPage model dispatch
             | Data ->
                 cond model.signedInAs <| function
@@ -278,3 +253,6 @@ type MyApp() =
         let update = update bookService
         Program.mkProgram (fun _ -> initModel, Cmd.ofMsg GetSignedInAs) update view
         |> Program.withRouter router
+#if DEBUG
+        |> Program.withHotReload
+#endif
