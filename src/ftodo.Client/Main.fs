@@ -185,8 +185,8 @@ let tasksPage model dispatch =
                         attr.placeholder "New task ..."
                         bind.input.string model.newTaskName (fun n -> dispatch (SetUsername n))
                         ]
-                 button [] [
-                     label [] [text "Add Task"]
+                 button [ on.click (fun _ -> printfn "Clicked!")] [
+                     label [] [textf "Add Task %s" model.username]
                  ]
              ]
          ]
