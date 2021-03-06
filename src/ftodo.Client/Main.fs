@@ -7,6 +7,7 @@ open Bolero.Html
 open Bolero.Remoting
 open Bolero.Remoting.Client
 open Bolero.Templating.Client
+open ftodo.Client.Model
 
 /// Routing endpoints definition.
 type Page =
@@ -16,17 +17,6 @@ type Page =
     | [<EndPoint "/data">] Data
 
 
-type TemporaryTask = {
-    name: string
-}
-type TaskName = TaskName of string
-let createTaskName (s:string) = 
-    if s.Length > 0 
-        then Some (TaskName s)
-        else None
-type Task = {
-    name: TaskName
-}
 type Book =
     {
         title: string
@@ -41,7 +31,7 @@ type Model =
         page: Page
         counter: int
         books: Book[] option
-        tasks: Task list
+        tasks: Todo list
         newTaskName: string
         error: string option
         username: string
@@ -93,7 +83,7 @@ type BookService =
 /// The Elmish application's update messages.
 type Message =
     | SetPage of Page
-    | AddTask of Task
+    | AddTask of Todo
     | SetNewTaskName of string
     | Increment
     | Decrement
