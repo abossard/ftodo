@@ -16,10 +16,17 @@ type Page =
     | [<EndPoint "/data">] Data
 
 
-type Task = {
+type TemporaryTask = {
     name: string
 }
-
+type TaskName = TaskName of string
+let createTaskName (s:string) = 
+    if s.Length > 0 
+        then Some (TaskName s)
+        else None
+type Task = {
+    name: TaskName
+}
 type Book =
     {
         title: string
