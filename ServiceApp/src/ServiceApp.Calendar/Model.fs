@@ -1,4 +1,4 @@
-﻿namespace ServiceApp.Calendar.Library
+﻿module ServiceApp.Calendar.Model
 
 open System
 
@@ -8,14 +8,21 @@ type Calendar =
         timezone: TimeZoneInfo
         entries: CalendarEntry list
     } 
-
 and CalendarEntry =
     {
         startTime: DateTime
         duration: TimeSpan
         title: string
-        calendar: Calendar
     }
+
+let createCalendarEntry startTime duration title =
+    {startTime = startTime; duration = duration; title = title}
+
+let createCalendar title timezone = 
+    {title = title; timezone = timezone; entries = [] }
+    
+let createMonthCalendars calendar =
+    calendar.entries
 
 type Month =
     January = 1
